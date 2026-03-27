@@ -7,6 +7,12 @@
 
 [English](./README.EN.md) | [日本語](./README.md)
 
+
+
+https://github.com/user-attachments/assets/c4feb357-516b-41da-aa17-8844c5c7b3a8
+
+
+
 ### Overview
 
 Run Ollama on Google Colab's GPU and chat privately with local LLMs — all within the same notebook. No data sent to external APIs, no logs stored anywhere. Stateless by design: everything is cleared instantly on browser reload.
