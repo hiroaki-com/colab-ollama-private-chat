@@ -103,7 +103,7 @@ flowchart RL
 #### 実行環境
 
 ```
-https://colab.research.google.com/github/hiroaki-com/colab-ollama-server/blob/main/ollama_colab_private_chat_ja.ipynb
+https://colab.research.google.com/github/hiroaki-com/colab-ollama-private-chat/blob/main/ollama_colab_private_chat_ja.ipynb
 ```
 
 #### 基本的な実行手順
