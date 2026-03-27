@@ -7,6 +7,12 @@
 
 [English](./README.EN.md) | [日本語](./README.md)
 
+
+
+https://github.com/user-attachments/assets/c6e13476-5acc-4a16-ba42-b7dae86225f2
+
+
+
 ### 概要
 
 Google Colab の GPU 上で Ollama を動作させ、同一ノートブック内でローカル LLM とプライベートにチャットできます。外部 API への送信なし、ログ保存なし。ブラウザリロードで即時消去されるステートレス設計です。
