@@ -8,7 +8,7 @@ flowchart LR
     subgraph UI_Layer ["Client UI Layer"]
         UI_D[Colab Cell UI<br>Direct]
         UI_T[Colab Cell UI<br>Tunnel]
-        UI_S[Standalone Browser UI]
+        UI_S[Standalone<br>Browser UI]
     end
 
     subgraph Route_Direct ["1. Inline: Direct"]
@@ -68,7 +68,7 @@ flowchart RL
     subgraph UI_Layer ["Client UI Layer"]
         UI_D[Colab Cell UI<br>Direct]
         UI_T[Colab Cell UI<br>Tunnel]
-        UI_S[Standalone Browser UI]
+        UI_S[Standalone<br>Browser UI]
     end
 
     %% Data Flow
