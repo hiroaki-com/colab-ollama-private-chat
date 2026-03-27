@@ -103,7 +103,7 @@ flowchart RL
 #### Notebook
 
 ```
-https://colab.research.google.com/github/hiroaki-com/colab-ollama-server/blob/main/ollama_colab_private_chat_en.ipynb
+https://colab.research.google.com/github/hiroaki-com/colab-ollama-private-chat/blob/main/ollama_colab_private_chat_en.ipynb
 ```
 
 #### Steps
