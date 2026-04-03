@@ -141,6 +141,8 @@ A fully independent UI that opens in a separate browser tab. A FastAPI server an
 
 ### Web Search RAG
 
+https://github.com/user-attachments/assets/cf1d710a-5874-42d7-9c35-97fbb8198ca9
+
 When the `Server` cell runs, a DuckDuckGo search engine is initialized. Toggle it on or off using the 🔍 Web Search button in the chat UI.
 
 When enabled, the LLM automatically extracts a search keyword from the user's message, fetches results from DuckDuckGo, and uses them as context to generate a grounded response. Source links for the retrieved results are displayed below the AI's reply.
