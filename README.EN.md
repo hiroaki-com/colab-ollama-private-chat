@@ -93,6 +93,7 @@ flowchart RL
 | **Chat UI — Standalone** | A standalone UI in a separate browser tab. Accessible from other devices via Cloudflare Tunnel |
 | **Ollama Server** | Started with `OLLAMA_HOST=0.0.0.0:11434`. Flash Attention and KV cache optimizations enabled |
 | **Cloudflare Tunnel** | Issues a public URL with no sign-up or token required. Standalone mode proxies through FastAPI on a dedicated port (11435) |
+| **Web Search RAG** | Augments LLM responses with DuckDuckGo search results. Toggle ON/OFF from the chat UI |
 | **Model (VRAM)** | Loaded into T4 GPU VRAM. Warmup runs automatically on startup |
 
 #### Key Features
@@ -102,6 +103,7 @@ flowchart RL
 - Uses Cloudflare Tunnel — no ngrok account or token required
 - Select a model in the UI; pull and warmup run automatically
 - Two chat modes: Inline and Standalone
+- **Web Search RAG powered by DuckDuckGo** — toggle ON/OFF in the chat UI, with source links displayed alongside responses
 - Supports message copy, edit, retry, and Markdown rendering
 
 ### Quick Start
@@ -137,13 +139,32 @@ Runs inside the Colab output cell. Switch the connection method via tabs.
 
 A fully independent UI that opens in a separate browser tab. A FastAPI server and dedicated Cloudflare Tunnel are started automatically — just open the displayed URL to start chatting. Sharing with other devices such as smartphones is also supported.
 
+### Web Search RAG
+
+When the `Server` cell runs, a DuckDuckGo search engine is initialized. Toggle it on or off using the 🔍 Web Search button in the chat UI.
+
+When enabled, the LLM automatically extracts a search keyword from the user's message, fetches results from DuckDuckGo, and uses them as context to generate a grounded response. Source links for the retrieved results are displayed below the AI's reply.
+
+#### Search Parameters
+
+The following parameters can be configured at the top of the `Server` cell.
+
+| Parameter | Description | Default |
+|:---|:---|:---:|
+| `SEARCH_MAX_RESULTS` | Maximum number of search results to fetch | `5` |
+| `SEARCH_BODY_LENGTH` | Maximum character length of body text per result | `300` |
+| `SEARCH_TIME_LIMIT` | Time filter for search results (None / Today / 1 Week / 1 Month / 1 Year) | `None` |
+| `SEARCH_REGION` | Region/language for search (English (US) / English (UK) / Japanese / Global / etc.) | `English (US)` |
+
+Search results are cached for 5 minutes. If a DuckDuckGo rate limit error occurs, wait a moment before retrying.
+
 ### Model Configuration
 
 Specify models as a comma-separated list in the `Model Registry` cell.
 
 ```python
 model_list = "gemma3:1b, qwen3.5:0.8b, nemotron-3-nano:4b, ministral-3:3b"
-num_ctx    = 4096
+num_ctx    = 8192
 ```
 
 Find available model names at [https://ollama.com/search](https://ollama.com/search).
@@ -163,6 +184,7 @@ Find available model names at [https://ollama.com/search](https://ollama.com/sea
 - LLM Engine: Ollama
 - Tunnel: Cloudflare Tunnel (cloudflared)
 - Standalone Server: FastAPI / uvicorn / httpx
+- Web Search RAG: DuckDuckGo Search (ddgs) / cachetools
 - UI: ipywidgets · marked.js · DOMPurify
 
 ### License
@@ -174,6 +196,7 @@ MIT License. See [LICENSE](LICENSE) for details.
 - [Ollama](https://ollama.com/) — local LLM runtime
 - [Google Colab](https://colab.research.google.com/) — free GPU environment
 - [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) — secure tunneling with no sign-up required
+- [DuckDuckGo Search](https://pypi.org/project/ddgs/) — privacy-respecting web search engine
 
 ### Support
 
